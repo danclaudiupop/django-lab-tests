@@ -15,7 +15,7 @@ setup(
     name='djangolabtests',
     version='0.1',
     description='Testing a reg app using different tools',
-    author='Dan Claudiu Pop',
+    author='Testerslab Team',
     author_email='danclaudiupop@gmail.com',
     packages=find_packages(),
     include_package_data=True,
