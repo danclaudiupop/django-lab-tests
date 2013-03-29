@@ -1,0 +1,20 @@
+[
+    {
+        "pk": 1,
+        "model": "auth.user",
+        "fields": {
+            "username": "danu",
+            "first_name": "Pop",
+            "last_name": "Dan",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2013-03-29T08:08:29.562Z",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$jF8i2fwgpDdC$jOyKYlBCT7T/55u6XtKe4u3nMIhRX5DbbYsgzuidEuk=",
+            "email": "danclaudiupop@gmail.com",
+            "date_joined": "2013-03-20T20:02:59.000Z"
+        }
+    }
+]
