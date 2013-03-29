@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'registration',
     'app',
+    'django_nose',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -168,3 +169,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_ACTIVATION_DAYS = 7
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
