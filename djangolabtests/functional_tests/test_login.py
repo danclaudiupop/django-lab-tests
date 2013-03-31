@@ -23,8 +23,8 @@ class LoginTest(WebTest):
 
     def testLoginWithInvalidCredentials(self):
         login = self.app.get(reverse('auth_login'))
-        login.form['username'] = 'username'
-        login.form['password'] = 'password'
+        login.form['username'] = 'foo'
+        login.form['password'] = 'bar'
         response = login.form.submit('Log in')
         assert_contains(
             response,

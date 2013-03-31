@@ -67,7 +67,7 @@ class RegisterTest(WebTest):
     def testUserAlreadyExists(self):
         register = self.app.get(reverse('registration_register'))
         register.form['username'] = 'danu'
-        register.form['email'] = 'example@gmail.com'
+        register.form['email'] = 'foo@example.com'
         register.form['password1'] = 'test123'
         register.form['password2'] = 'test123'
         response = register.form.submit('Submit')
@@ -77,6 +77,31 @@ class RegisterTest(WebTest):
             count=1,
             status_code=200
         )
+
+    def testMismatchedPasswords(self):
+        invalid_data = [
+            {
+                'data': {'username': 'test',
+                         'email': 'foo@example.com',
+                         'password1': 'test123',
+                         'password2': 'test321'},
+                'error': "The two password fields didn&#39;t match."
+            },
+        ]
+        register = self.app.get(reverse('registration_register'))
+        for i in invalid_data:
+            register.form['username'] = i['data']['username']
+            register.form['email'] = i['data']['email']
+            register.form['password1'] = i['data']['password1']
+            register.form['password2'] = i['data']['password2']
+            response = register.form.submit('Submit')
+
+            assert_contains(
+                response,
+                i['error'],
+                count=1,
+                status_code=200
+            )
 
     def testEmailFieldValidation(self):
         register = self.app.get(reverse('registration_register'))
