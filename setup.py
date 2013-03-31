@@ -6,11 +6,6 @@ README_PATH = os.path.join(os.path.abspath(
     'README.rst'
 )
 
-dependencies = [
-    'Django==1.4.3',
-    'django-registration==0.8',
-]
-
 setup(
     name='djangolabtests',
     version='0.1',
@@ -19,5 +14,5 @@ setup(
     author_email='danclaudiupop@gmail.com',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=dependencies,
+    test_suite="djangolabtests.functional_tests",
 )
