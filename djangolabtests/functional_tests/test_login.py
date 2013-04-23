@@ -13,6 +13,11 @@ class LoginTest(WebTest):
             password='test123',
         )
 
+    def testLogin(self):
+        response = self.app.get('/', user='foo')
+        assert_equals('200 OK', response.status)
+        assert_contains(response, 'Welcome foo :]', count=1, status_code=200)
+
     def testLoginProcess(self):
         login = self.app.get(reverse('auth_login'))
         login.form['username'] = 'danu'
